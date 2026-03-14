@@ -2,6 +2,6 @@
 
 # No authentication in popular website 
 
-> [!INFO]
+> [!NOTE]
 > This is a fork of [this](https://github.com/andreyvpng/no-authentication-in-popular-website) repository.
 > That repository has no LICENSE as well this.

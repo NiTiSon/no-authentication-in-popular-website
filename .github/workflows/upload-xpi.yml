@@ -1,0 +1,28 @@
+name: Build XPI files
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Build XPI file
+        run: |
+          npm install
+          npx web-ext build --source-dir=./ --artifacts-dir=./artifacts
+
+      - name: Upload XPI to GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./artifacts/*.xpi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

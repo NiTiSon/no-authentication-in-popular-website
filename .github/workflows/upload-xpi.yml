@@ -17,7 +17,6 @@ jobs:
 
       - name: Build XPI file
         run: |
-          npm install
           npx web-ext build --source-dir=./ --artifacts-dir=./artifacts
 
       - name: Upload XPI to GitHub release
